@@ -648,24 +648,23 @@
         }
 
         // Функция для отображения всех товаров
-        function displayProducts(filteredProducts = products) {
-            const productsDiv = document.getElementById("product-gallery");
-            productsDiv.innerHTML = '';
-            filteredProducts.forEach((product, index) => {
-                const productDiv = document.createElement("div");
-                productDiv.className = "product-card";
-                productDiv.innerHTML = `
-                    <img src="${product.images[0]}" alt="${product.name}" onclick="openModal(${index})">
-                    <h2>${product.name}</h2>
-                    <p class="price">${product.price}₽</p>
-                    <button class="btn" onclick="orderNow('${product.name}', '${product.images[0]}')">Заказать 🛍️</button>
-                    <button class="btn" onclick="addToCart('${product.name}', ${product.price}, '${product.images[0]}')">В корзину 🛒</button>
-                `;
-                productDiv.addEventListener('click', () => openModal(index));
-                productsDiv.appendChild(productDiv);
-            });
-        }
-
+    function displayProducts(filteredProducts = products) {
+    const productsDiv = document.getElementById("product-gallery");
+    productsDiv.innerHTML = '';
+    filteredProducts.forEach((product, index) => {
+        const productDiv = document.createElement("div");
+        productDiv.className = "product-card";
+        productDiv.innerHTML = `
+            <img src="${product.images[0]}" alt="${product.name}" onclick="openModal(${products.indexOf(product)})">
+            <h2>${product.name}</h2>
+            <p class="price">${product.price}₽</p>
+            <button class="btn" onclick="orderNow('${product.name}', '${product.images[0]}')">Заказать 🛍️</button>
+            <button class="btn" onclick="addToCart('${product.name}', ${product.price}, '${product.images[0]}')">В корзину 🛒</button>
+        `;
+        productDiv.addEventListener('click', () => openModal(products.indexOf(product)));
+        productsDiv.appendChild(productDiv);
+    });
+}
         // Функция для отображения рекомендуемых товаров
         function displayRecommendedProducts() {
             const recommendedDiv = document.getElementById("recommended-products");
