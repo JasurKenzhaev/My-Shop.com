@@ -118,6 +118,7 @@
             align-items: center;
             height: 350px;
             margin-bottom: 15px;
+            cursor: pointer;
         }
 
         body.dark-mode .product-card {
@@ -602,7 +603,7 @@
             <button class="btn" onclick="addToCartFromModal()">в корзину 🛒</button>
             <h3>Отзывы:</h3>
             <div id="modalProductReviews"></div>
-                <button class="btn" onclick="openTelegramChat()"> Открыть чат💬</button>
+            <button class="btn" onclick="openTelegramChat()"> Открыть чат💬</button>
         </div>
     </div>
     <!-- Полноэкранный режим -->
@@ -629,6 +630,7 @@
         let chatMessages = [];
         let startX = 0;
         let isSwiping = false;
+        let searchIndex = -1;
 
         // Функция для загрузки товаров из products.json
         async function loadProducts() {
@@ -659,6 +661,7 @@
                     <button class="btn" onclick="orderNow('${product.name}', '${product.images[0]}')">Заказать 🛍️</button>
                     <button class="btn" onclick="addToCart('${product.name}', ${product.price}, '${product.images[0]}')">В корзину 🛒</button>
                 `;
+                productDiv.addEventListener('click', () => openModal(index));
                 productsDiv.appendChild(productDiv);
             });
         }
@@ -678,6 +681,7 @@
                     <button class="btn" onclick="orderNow('${product.name}', '${product.images[0]}')">Заказать</button>
                     <button class="btn" onclick="addToCart('${product.name}', ${product.price}, '${product.images[0]}')">В корзину 🛒</button>
                 `;
+                productDiv.addEventListener('click', () => openModal(index));
                 recommendedDiv.appendChild(productDiv);
             });
         }
@@ -768,6 +772,7 @@
             currentProduct = null;
             currentQuantity = 1;
             currentImageIndex = 0;
+            searchIndex = -1;
         }
 
         function increaseQuantity() {
@@ -802,6 +807,7 @@
             const searchQuery = document.getElementById('search-bar').value.toLowerCase();
             const filteredProducts = products.filter(product => product.name.toLowerCase().includes(searchQuery));
             displayProducts(filteredProducts);
+            searchIndex = filteredProducts.length > 0 ? 0 : -1;
         }
 
         // Инициализация отображения продуктов
