@@ -1,2 +1,2 @@
-# My-Shop.com
+# GooD_Shop.com
 MyShop 
