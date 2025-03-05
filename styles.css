@@ -6,7 +6,52 @@ body {
     line-height: 1.6;
     transition: background-color 0.3s, color 0.3s;
 }
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
 
+.bottom-nav ul {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    margin: 0;
+    list-style: none;
+}
+
+.bottom-nav li {
+    flex: 1;
+    text-align: center;
+}
+
+.nav-button {
+    display: inline-block;
+    width: 50px; /* Ширина кнопки */
+    height: 50px; /* Высота кнопки */
+    background-color: #d2b48c; /* Цвет фона кнопки */
+    color: #fff; /* Цвет текста */
+    border-radius: 50%; /* Круглая форма */
+    line-height: 50px; /* Центрирование текста по вертикали */
+    text-align: center; /* Центрирование текста по горизонтали */
+    font-size: 24px; /* Размер иконки */
+    transition: background-color 0.3s, transform 0.3s; /* Анимация */
+}
+
+.nav-button:hover {
+    background-color: #c2a77a; /* Цвет фона при наведении */
+    transform: scale(1.1); /* Увеличение кнопки при наведении */
+}
+
+footer {
+    text-align: center;
+    padding: 1em;
+    background-color: #d2b48c;
+    color: #000;
+}
 body.dark-mode {
     background-color: #121212;
     color: #ffffff;
