@@ -1,588 +1,104 @@
-body {
-    font-family: 'Roboto', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f5f5f5;
-    line-height: 1.6;
-    transition: background-color 0.3s, color 0.3s;
-}
-.bottom-nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: #fff;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.bottom-nav ul {
-    display: flex;
-    justify-content: space-around;
-    padding: 10px 0;
-    margin: 0;
-    list-style: none;
-}
-
-.bottom-nav li {
-    flex: 1;
-    text-align: center;
-}
-
-.nav-button {
-    display: inline-block;
-    width: 50px; /* Ширина кнопки */
-    height: 50px; /* Высота кнопки */
-    background-color: #d2b48c; /* Цвет фона кнопки */
-    color: #fff; /* Цвет текста */
-    border-radius: 50%; /* Круглая форма */
-    line-height: 50px; /* Центрирование текста по вертикали */
-    text-align: center; /* Центрирование текста по горизонтали */
-    font-size: 24px; /* Размер иконки */
-    transition: background-color 0.3s, transform 0.3s; /* Анимация */
-}
-
-.nav-button:hover {
-    background-color: #c2a77a; /* Цвет фона при наведении */
-    transform: scale(1.1); /* Увеличение кнопки при наведении */
-}
-
-footer {
-    text-align: center;
-    padding: 1em;
-    background-color: #d2b48c;
-    color: #000;
-}
-body.dark-mode {
-    background-color: #121212;
-    color: #ffffff;
-}
-
-header {
-    background-color: #d2b48c;
-    color: #000000;
-    padding: 1em;
-    text-align: center;
-    position: relative;
-    border-bottom: 1px solid #ccc;
-}
-
-.menu-button {
-    position: absolute;
-    top: 10px;
-    left: 10px;
-    background-color: #d2b48c;
-    border: 1px solid #ccc;
-    color: #000000;
-    padding: 0.5em;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s, transform 0.3s;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
-.menu-button:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.1);
-}
-
-.menu-panel {
-    display: none;
-    position: absolute;
-    top: 40px;
-    left: 8px;
-    background-color: #d2b48c;
-    border-radius: 4px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1;
-}
-
-.menu-panel button {
-    background-color: #d2b48c;
-    border: 1px solid #ccc;
-    color: #000000;
-    padding: 0.5em 1em;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    width: 100%;
-    text-align: left;
-}
-
-.menu-panel button:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.1);
-}
-
-main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 1em;
-}
-
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 15px;
-    width: 100%;
-    max-width: 1200px;
-    padding: 1em;
-}
-
-.product-card {
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 1em;
-    text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 350px;
-    margin-bottom: 15px;
-    cursor: pointer;
-}
-
-body.dark-mode .product-card {
-    background-color: #1e1e1e;
-    color: #ffffff;
-}
-
-.product-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
-
-.product-card img {
-    max-width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: transform 0.3s;
-    margin-bottom: 1em;
-}
-
-.product-card img:hover {
-    transform: scale(1.1);
-}
-
-.product-card h2 {
-    font-size: 1.2em;
-    margin-bottom: 0.5em;
-}
-
-.product-card p {
-    font-size: 1em;
-    margin-bottom: 1em;
-}
-
-.product-card .price {
-    font-size: 1.2em;
-    color: #d2b48c;
-    margin-bottom: 1em;
-}
-
-.product-card button {
-    background-color: #007bff;
-    border: none;
-    color: #ffffff;
-    padding: 0.5em 1em;
-    margin: 0.2em;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-    width: 100%;
-}
-
-.product-card button:hover {
-    background-color: #0056b3;
-    transform: scale(1.1);
-}
-
-.cart {
-    margin-top: 10px;
-    width: 100%;
-    max-width: 600px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    padding: 1em;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-body.dark-mode .cart {
-    background-color: #1e1e1e;
-    color: #ffffff;
-}
-
-.cart-item {
-    margin: 5px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.cart-item img {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 5px;
-    margin-right: 10px;
-    cursor: pointer;
-}
-
-.cart-item button {
-    background-color: #dc3545;
-    border: none;
-    color: #ffffff;
-    padding: 0.5em;
-    margin: 0.5em;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.cart-item button:hover {
-    background-color: #c82333;
-    transform: scale(1.1);
-}
-
-.btn {
-    margin: 5px;
-    padding: 10px;
-    background-color: #28a745;
-    color: #ffffff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
-}
-
-.btn:hover {
-    background-color: #218838;
-    transform: scale(1.1);
-}
-
-/* Модальное окно */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
-    padding-top: 60px;
-}
-
-.modal-content {
-    background-color: #ffffff;
-    margin: 5% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 600px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    max-height: 80vh;
-    overflow-y: auto;
-    position: relative;
-}
-
-body.dark-mode .modal-content {
-    background-color: #1e1e1e;
-    color: #ffffff;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* Анимация перехода между картинками */
-.image-slider img {
-    width: 100%;
-    height: auto;
-    margin: 0 auto;
-    display: block;
-    position: absolute;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.image-slider img.active {
-    opacity: 1;
-}
-
-/* Контейнер для изображений */
-.image-slider {
-    position: relative;
-    width: 100%;
-    height: 400px; /* Фиксированная высота для контейнера изображений */
-    overflow: hidden;
-}
-
-.image-count {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
-/* Полноэкранный режим */
-.fullscreen {
-    display: none;
-    position: fixed;
-    z-index: 2;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    overflow: hidden;
-}
-
-.fullscreen img {
-    width: 100%;
-    height: auto;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.fullscreen img.active {
-    opacity: 1;
-}
-
-.fullscreen .close-fullscreen {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    color: #ffffff;
-    font-size: 30px;
-    cursor: pointer;
-}
-
-/* Чаты */
-.chat-container {
-    display: none;
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    max-width: 400px;
-    height: 400px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1;
-}
-
-body.dark-mode .chat-container {
-    background-color: #1e1e1e;
-    color: #ffffff;
-}
-
-.chat-header {
-    background-color: #007bff;
-    color: #ffffff;
-    padding: 10px;
-    text-align: center;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
-}
-
-.chat-messages {
-    padding: 10px;
-    height: 300px;
-    overflow-y: auto;
-}
-
-.chat-message {
-    background-color: #f1f1f1;
-    padding: 10px;
-    margin: 5px 0;
-    border-radius: 5px;
-}
-
-.chat-input {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-top: 1px solid #ccc;
-    border-radius: 0 0 8px 8px;
-}
-
-/* Социальные сети */
-.social-media {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    display: flex;
-    gap: 20px;
-    animation: fadeInSocial 1s ease-in-out;
-}
-
-@keyframes fadeInSocial {
-    from {
-        opacity: 0;
-        transform: translateY(-20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.social-media a {
-    text-decoration: none;
-    font-size: 24px;
-    transition: color 0.3s, transform 0.3s;
-}
-
-.social-media a.facebook {
-    color: #1877f2;
-}
-
-.social-media a.instagram {
-    color: #e1306c;
-}
-
-.social-media a.telegram {
-    color: #0088cc;
-}
-
-.social-media a.whatsapp {
-    color: #25d366;
-}
-
-.social-media a.vk {
-    color: #4a76a8;
-}
-
-.social-media a.youtube {
-    color: #ff0000;
-}
-
-.social-media a:hover {
-    opacity: 0.7;
-    transform: scale(1.2);
-}
-
-/* Кнопка переключения тем */
-.theme-toggle {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    background-color: transparent;
-    border: none;
-    color: #000000;
-    font-size: 24px;
-    cursor: pointer;
-    transition: transform 0.3s;
-}
-
-.theme-toggle:hover {
-    transform: scale(1.2);
-}
-
-/* Mobile Responsive Styles */
-@media (max-width: 768px) {
-    header {
-        padding: 0.5em;
-    }
-
-    .menu-button {
-        top: 5px;
-        left: 5px;
-        padding: 0.3em;
-        font-size: 18px;
-    }
-
-    .menu-panel {
-        top: 40px;
-        left: 5px;
-        width: calc(100% - 10px);
-    }
-
-    .menu-panel button {
-        padding: 0.3em 0.5em;
-        font-size: 14px;
-    }
-
-    main {
-        padding: 0.5em;
-    }
-
-    .gallery {
-        width: 100%;
-    }
-
-    .product-card {
-        width: 100%;
-        padding: 0.3em;
-    }
-
-    .cart {
-        width: 90%;
-    }
-
-    .modal-content {
-        width: 90%;
-        padding: 1em;
-    }
-
-    .chat-container {
-        width: 100%;
-        height: 300px;
-    }
-
-    .social-media {
-        top: 5px;
-        right: 5px;
-        gap: 5px;
-    }
-
-    .social-media a {
-        font-size: 20px;
-    }
-
-    .theme-toggle {
-        bottom: 5px;
-        left: 5px;
-        font-size: 20px;
-    }
-}
-
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интернет-магазин</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Добро пожаловать в интернет-магазин Shaxa</h1>
+        <input type="text" id="search-bar" placeholder="🔍Поиск..." oninput="filterProducts()">
+        <nav class="bottom-nav">
+            <ul>
+                <li><a href="#" class="nav-button">🏠</a></li>
+                <li><a href="#" class="nav-button">📦</a></li>
+                <li><a href="#" class="nav-button">🛒</a></li>
+                <li><a href="#" class="nav-button">👤</a></li>
+            </ul>
+        </nav>
+       
+        <div class="social-media">
+            <a href="https://www.facebook.com" target="_blank" class="facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/____no_name____.__?igsh=aGJpOW83MmZoZ21o&utm_source=qr" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://t.me/+jav7eB_a5rc4NjZi" target="_blank" class="telegram"><i class="fab fa-telegram"></i></a>
+            <a href="https://wa.me/+79964684744" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://vk.com/id756665575" target="_blank" class="vk"><i class="fab fa-vk"></i></a>
+            <a href="https://youtube.com/channel/UCbKThWSdaYNLMaPmdK4XyyA?si=cmyDMGcOSjckE7cw" target="_blank" class="youtube"><i class="fab fa-youtube"></i></a>
+        </div>
+        <button class="theme-toggle" onclick="toggleTheme()"></button>
+    </header>
+    <main>
+        <section class="gallery" id="product-gallery">
+            <!-- Продукты будут добавлены здесь через JavaScript -->
+        </section>
+        <section class="recommended" id="recommended-gallery" style="display: none;">
+            <h2>Рекомендуемые товары</h2>
+            <div class="gallery" id="recommended-products">
+                <!-- Рекомендуемые продукты будут добавлены здесь через JavaScript -->
+            </div>
+        </section>
+        <section class="new-products" id="new-products-gallery" style="display: none;">
+            <h2>Новые товары</h2>
+            <div class="gallery" id="new-products">
+                <!-- Новые продукты будут добавлены здесь через JavaScript -->
+            </div>
+        </section>
+        <section class="sale-products" id="sale-products-gallery" style="display: none;">
+            <h2>Товары со скидкой</h2>
+            <div class="gallery" id="sale-products">
+                <!-- Товары со скидкой будут добавлены здесь через JavaScript -->
+            </div>
+        </section>
+        <section class="popular-products" id="popular-products-gallery" style="display: none;">
+            <h2>Популярные товары</h2>
+            <div class="gallery" id="popular-products">
+                <!-- Популярные продукты будут добавлены здесь через JavaScript -->
+            </div>
+        </section>
+        <section class="cart" id="cart-section" style="display: none;">
+            <h2>Корзина 🛒</h2>
+            <div id="cart-items"></div>
+            <button class="btn" onclick="checkout()">Оформить заказ</button>
+        </section>
+    </main>
+    <!-- Модальное окно -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalProductName"></h2>
+            <div id="modalProductImages" class="image-slider"></div>
+            <div class="image-count"></div>
+            <p id="modalProductPrice"></p>
+            <div>
+                <button class="btn" onclick="decreaseQuantity()">-</button>
+                <span id="modalProductQuantity">1</span>
+                <button class="btn" onclick="increaseQuantity()">+</button>
+            </div>
+            <button class="btn" onclick="addToCartFromModal()">в корзину 🛒</button>
+            <h3>Отзывы:</h3>
+            <div id="modalProductReviews"></div>
+            <button class="btn" onclick="openTelegramChat()"> Открыть чат💬</button>
+        </div>
+    </div>
+    <!-- Полноэкранный режим -->
+    <div id="fullscreen" class="fullscreen">
+        <span class="close-fullscreen" onclick="closeFullscreen()">&times;</span>
+        <div id="fullscreenImages" class="fullscreen-images"></div>
+        <div class="image-count"></div>
+    </div>
+    <!-- Чаты -->
+    <div id="chatContainer" class="chat-container">
+        <div class="chat-header">
+            <span class="close" onclick="closeChat()">&times;</span>
+            <h3>Чат 💬</h3>
+        </div>
+        <div class="chat-messages" id="chatMessages"></div>
+        <input type="text" id="chatInput" class="chat-input" placeholder="Напишите сообщение..." onkeypress="sendMessage(event)">
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
